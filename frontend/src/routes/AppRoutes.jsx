@@ -1,4 +1,5 @@
 import React from 'react';
+import Home from '../pages/Home';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Layout
@@ -8,7 +9,6 @@ import ProtectedRoute from './ProtectedRoute';
 // Auth Pages
 import FirstRunSetup from '../pages/auth/FirstRunSetup';
 import Login from '../pages/auth/Login';
-import Register from '../pages/auth/Register';
 import ChangePassword from '../pages/auth/ChangePassword';
 
 // Admin Pages
@@ -49,10 +49,17 @@ import AiAssistant from '../pages/shared/AiAssistant';
 export default function AppRoutes() {
   return (
     <Routes>
+
+      {/* Public homepage */}
+      <Route path="/" element={<Home />} />
+
+      {/* Existing Public / Auth routes */}
+      <Route path="/first-run" element={<FirstRunSetup />} />
+      <Route path="/login" element={<Login />} />
+
       {/* Public / Auth routes */}
       <Route path="/first-run" element={<FirstRunSetup />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
       <Route
         path="/change-password"
         element={
